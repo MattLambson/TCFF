@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCFF — TC Fantasy Football</title>
+<meta name="description" content="TC Fantasy Football — standings, weekly recaps, top scorers, draft guide, and league rules.">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a class="topbar-brand" href="#home">
+      <div class="brand-mark"><img src="img/tcff-logo-128.png" alt="" width="30" height="30"></div>
+      <span class="topbar-brand-text">TCFF: Trinity Creek Fantasy Football</span>
+    </a>
+    <div class="topbar-right">
+      <span class="season-pill"><span class="dot"></span><span class="season-pill-text">2026 Season · Draft Prep</span></span>
+      <a href="draft-guide.html" class="btn btn-outline">Draft Guide</a>
+    </div>
+  </header>
+
+  <div class="sidebar-backdrop"></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="nav-list">
+      <div class="nav-section-label">League</div>
+      <a class="nav-link active" href="#home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>
+        Home
+      </a>
+      <a class="nav-link" href="#recaps">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+        Weekly Recaps
+      </a>
+      <a class="nav-link" href="#topscorer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/></svg>
+        Top Scorer
+      </a>
+      <a class="nav-link" href="#matchups">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M4 7h16M4 17h16"/><circle cx="4" cy="7" r="1.5"/><circle cx="20" cy="7" r="1.5"/><circle cx="4" cy="17" r="1.5"/><circle cx="20" cy="17" r="1.5"/></svg>
+        Weekly Matchups
+      </a>
+      <a class="nav-link" href="#standings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Standings
+      </a>
+
+      <div class="nav-section-label">Draft</div>
+      <a class="nav-link" href="draft-guide.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-4M9 3v6l2-2 2 2V3M13 3h6v6"/></svg>
+        Draft Guide
+      </a>
+
+      <div class="nav-section-label">Info</div>
+      <a class="nav-link" href="#rules">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        Rules &amp; Scoring
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <img class="sidebar-footer-mark" src="img/tcff-logo-128.png" alt="">
+      <span><strong>TCFF</strong> · Est. 2020<br>
+      Commissioner: Matt</span>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="eyebrow">Home</div>
+      <h1>Welcome back to TCFF</h1>
+      <p class="lede">The neighborhood's most competitive fantasy football league. Twelve teams, one trophy, zero mercy.</p>
+
+      <div class="hero">
+        <div class="card spotlight reveal">
+          <svg class="spotlight-field" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="glow" cx="80%" cy="0%" r="75%">
+                <stop offset="0%" stop-color="#83c3ff" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#83c3ff" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="260" fill="url(#glow)"/>
+            <g stroke="#34353c" stroke-width="1" fill="none">
+              <line x1="40" y1="0" x2="40" y2="260"/>
+              <line x1="100" y1="0" x2="100" y2="260"/>
+              <line x1="160" y1="0" x2="160" y2="260"/>
+              <line x1="220" y1="0" x2="220" y2="260"/>
+              <line x1="280" y1="0" x2="280" y2="260"/>
+              <line x1="340" y1="0" x2="340" y2="260"/>
+              <circle cx="300" cy="70" r="60" stroke-opacity="0.5"/>
+              <circle cx="300" cy="70" r="100" stroke-opacity="0.25"/>
+            </g>
+          </svg>
+          <div class="spotlight-label">2026 Season</div>
+          <div class="spotlight-name">It's Draft Day!</div>
+          <div class="spotlight-team">Trinity Creek League · 12 Teams</div>
+          <a href="draft-guide.html" class="btn btn-outline" style="position:relative; margin-top:var(--s-6);">Open Draft Guide →</a>
+        </div>
+
+        <div class="card reveal">
+          <h2 style="margin-bottom:var(--s-3);">The League</h2>
+          <div class="mini-stat"><span class="team">Draft Punk</span><span class="rec"><svg class="commish-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Commissioner"><path d="M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8z"/></svg>Matt</span></div>
+          <div class="mini-stat"><span class="team">In Vrabel we trust</span><span class="rec">Adam</span></div>
+          <div class="mini-stat"><span class="team">Hold the Mayo</span><span class="rec">Alex</span></div>
+          <div class="mini-stat"><span class="team">Mayehem</span><span class="rec">Amy</span></div>
+          <div class="mini-stat"><span class="team">Circle The Wagons</span><span class="rec">Jayson</span></div>
+          <div class="mini-stat"><span class="team">Brian's Nifty Team</span><span class="rec">Brian</span></div>
+          <div class="mini-stat"><span class="team">For The Win!</span><span class="rec">Tom</span></div>
+          <div class="mini-stat"><span class="team">Angry Amish</span><span class="rec">Robert</span></div>
+          <div class="mini-stat"><span class="team">.....</span><span class="rec">Corey</span></div>
+          <div class="mini-stat"><span class="team">Bittin Kneecaps</span><span class="rec">Sean</span></div>
+          <div class="mini-stat"><span class="team"><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="2025 Champion"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>Yinzers</span><span class="rec">Christina</span></div>
+          <div class="mini-stat"><span class="team">Whiskey Tango Foxtrot</span><span class="rec">Alan</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--s-8);" class="reveal">
+        <div class="section-head"><h2 style="margin:0;">Latest Recap</h2><a class="see-all" href="#recaps">All recaps →</a></div>
+        <a class="recap-card" href="recap-draft-day.html">
+          <div class="recap-week">Preseason</div>
+          <div class="recap-title">It's Draft Day!</div>
+          <div class="recap-teaser">The 2026 draft is here. Star your favorites, cross off the ones already off the board, and build your team before the clock starts.</div>
+          <span class="recap-link">Read the recap →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- RECAPS -->
+    <section id="recaps">
+      <div class="eyebrow">Weekly Recaps</div>
+      <h1 style="margin-bottom:var(--s-6);">Recaps</h1>
+      <a class="recap-card reveal" href="recap-draft-day.html">
+        <div class="recap-week">Preseason</div>
+        <div class="recap-title">It's Draft Day!</div>
+        <div class="recap-teaser">The 2026 draft is here. Star your favorites, cross off the ones already off the board, and build your team before the clock starts. Weekly recaps will start showing up here once Week 1 wraps.</div>
+        <span class="recap-link">Read the recap →</span>
+      </a>
+    </section>
+
+    <!-- TOP SCORER -->
+    <section id="topscorer">
+      <div class="eyebrow">Top Scorer</div>
+      <h1 style="margin-bottom:var(--s-2);">Weekly High Scores</h1>
+      <p class="lede" style="margin-bottom:var(--s-6);">Nothing to show yet — check back after Week 1.</p>
+      <div class="card reveal empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>
+        <div class="empty-state-title">No games played yet</div>
+        <div class="empty-state-sub">Weekly high scores will show up here once Week 1 wraps.</div>
+      </div>
+    </section>
+
+    <!-- MATCHUPS -->
+    <section id="matchups">
+      <div class="eyebrow">Weekly Matchups <span class="tag-sample">Not started yet</span></div>
+      <h1 style="margin-bottom:var(--s-2);">Week 1 Matchups</h1>
+      <p class="lede" style="margin-bottom:var(--s-4);">Matchups populate automatically once Week 1 games kick off.</p>
+      <div class="card reveal matchup-card">
+        <div class="matchup-row">
+          <div class="matchup-side"><span class="matchup-team">Draft Punk</span><span class="matchup-sub"><svg class="commish-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Commissioner"><path d="M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8z"/></svg>Matt · 0-0-0</span></div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-vs">vs</div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">.....</span><span class="matchup-sub">Corey · 0-0-0</span></div>
+        </div>
+        <div class="matchup-row">
+          <div class="matchup-side"><span class="matchup-team">In Vrabel we trust</span><span class="matchup-sub">Adam · 0-0-0</span></div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-vs">vs</div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">Hold the Mayo</span><span class="matchup-sub">Alex · 0-0-0</span></div>
+        </div>
+        <div class="matchup-row">
+          <div class="matchup-side"><span class="matchup-team">Mayehem</span><span class="matchup-sub">Amy · 0-0-0</span></div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-vs">vs</div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">Whiskey Tango Foxtrot</span><span class="matchup-sub">Alan · 0-0-0</span></div>
+        </div>
+        <div class="matchup-row">
+          <div class="matchup-side"><span class="matchup-team">Circle The Wagons</span><span class="matchup-sub">Jayson · 0-0-0</span></div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-vs">vs</div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">For The Win!</span><span class="matchup-sub">Tom · 0-0-0</span></div>
+        </div>
+        <div class="matchup-row">
+          <div class="matchup-side"><span class="matchup-team">Brian's Nifty Team</span><span class="matchup-sub">Brian · 0-0-0</span></div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-vs">vs</div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team"><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="2025 Champion"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>Yinzers</span><span class="matchup-sub">Christina · 0-0-0</span></div>
+        </div>
+        <div class="matchup-row">
+          <div class="matchup-side"><span class="matchup-team">Angry Amish</span><span class="matchup-sub">Robert · 0-0-0</span></div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-vs">vs</div>
+          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">Bittin Kneecaps</span><span class="matchup-sub">Sean · 0-0-0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STANDINGS -->
+    <section id="standings">
+      <div class="eyebrow">Standings</div>
+      <h1 style="margin-bottom:var(--s-2);">League Standings</h1>
+      <p class="lede" style="margin-bottom:var(--s-4);">12 teams gearing up for the 2026 season. Standings will populate once Week 1 kicks off.</p>
+      <div class="standings-legend">
+        <span><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg> 2025 Champion</span>
+        <span><svg class="commish-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8z"/></svg> Commissioner</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Team</th><th>Manager</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Draft Punk</td><td class="text-fog"><svg class="commish-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Commissioner"><path d="M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8z"/></svg>Matt</td></tr>
+            <tr><td>In Vrabel we trust</td><td class="text-fog">Adam</td></tr>
+            <tr><td>Hold the Mayo</td><td class="text-fog">Alex</td></tr>
+            <tr><td>Mayehem</td><td class="text-fog">Amy</td></tr>
+            <tr><td>Circle The Wagons</td><td class="text-fog">Jayson</td></tr>
+            <tr><td>Brian's Nifty Team</td><td class="text-fog">Brian</td></tr>
+            <tr><td>For The Win!</td><td class="text-fog">Tom</td></tr>
+            <tr><td>Angry Amish</td><td class="text-fog">Robert</td></tr>
+            <tr><td>.....</td><td class="text-fog">Corey</td></tr>
+            <tr><td>Bittin Kneecaps</td><td class="text-fog">Sean</td></tr>
+            <tr><td><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="2025 Champion"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>Yinzers</td><td class="text-fog">Christina</td></tr>
+            <tr><td>Whiskey Tango Foxtrot</td><td class="text-fog">Alan</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules">
+      <div class="eyebrow">League Info</div>
+      <h1 style="margin-bottom:var(--s-2);">Rules &amp; Scoring</h1>
+      <p class="lede" style="margin-bottom:var(--s-6);">2026 season rules for the Trinity Creek neighborhood league.</p>
+
+      <div class="rules-grid">
+        <div class="card reveal">
+          <h2>League Format</h2>
+          <div class="rule-item"><span>Teams</span><span class="val">12</span></div>
+          <div class="rule-item"><span>Playoff Field</span><span class="val">Top 8</span></div>
+          <div class="rule-item"><span>Season Start</span><span class="val">Week 1</span></div>
+          <div class="rule-item"><span>Buy-in</span><span class="val">$60</span></div>
+          <div class="rule-item"><span>Dues Due</span><span class="val">Before Week 1</span></div>
+        </div>
+        <div class="card reveal">
+          <h2>Roster</h2>
+          <div class="rule-item"><span>Quarterback (QB)</span><span class="val">1</span></div>
+          <div class="rule-item"><span>Running Back (RB)</span><span class="val">2</span></div>
+          <div class="rule-item"><span>Wide Receiver (WR)</span><span class="val">2</span></div>
+          <div class="rule-item"><span>Tight End (TE)</span><span class="val">1</span></div>
+          <div class="rule-item"><span>Flex (WR/RB/TE)</span><span class="val">1</span></div>
+          <div class="rule-item"><span>Kicker (K)</span><span class="val">1</span></div>
+          <div class="rule-item"><span>Defense (DEF)</span><span class="val">1</span></div>
+          <div class="rule-item"><span>Bench (BN)</span><span class="val">6</span></div>
+          <div class="rule-item"><span>Injured Reserve (IR)</span><span class="val">2</span></div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:var(--s-12);">
+        <h2 style="margin:0;">Scoring</h2>
+        <div style="display:flex; gap:8px;">
+          <span class="tag-sample">Full-PPR</span>
+          <span class="tag-sample">Fractional &amp; negative scoring</span>
+        </div>
+      </div>
+      <div class="rules-grid">
+        <div class="card reveal">
+          <h2>Passing</h2>
+          <div class="rule-item"><span>Passing Touchdown</span><span class="val">6 pts</span></div>
+          <div class="rule-item"><span>Interception Thrown</span><span class="val neg">-1 pt</span></div>
+          <div class="rule-item"><span>Passing Yards</span><span class="val">1 pt / 25 yds</span></div>
+          <div class="rule-item"><span>40+ Yd Completion</span><span class="val">+1 pt</span></div>
+          <div class="rule-item"><span>40+ Yd Passing TD</span><span class="val">+1 pt</span></div>
+        </div>
+        <div class="card reveal">
+          <h2>Rushing</h2>
+          <div class="rule-item"><span>Rushing Touchdown</span><span class="val">6 pts</span></div>
+          <div class="rule-item"><span>Rushing Yards</span><span class="val">1 pt / 10 yds</span></div>
+          <div class="rule-item"><span>40+ Yd Run</span><span class="val">+1 pt</span></div>
+          <div class="rule-item"><span>40+ Yd Rushing TD</span><span class="val">+1 pt</span></div>
+        </div>
+        <div class="card reveal">
+          <h2>Receiving</h2>
+          <div class="rule-item"><span>Receiving Touchdown</span><span class="val">6 pts</span></div>
+          <div class="rule-item"><span>Reception</span><span class="val">1 pt</span></div>
+          <div class="rule-item"><span>Receiving Yards</span><span class="val">1 pt / 10 yds</span></div>
+          <div class="rule-item"><span>40+ Yd Reception</span><span class="val">+1 pt</span></div>
+          <div class="rule-item"><span>40+ Yd Receiving TD</span><span class="val">+1 pt</span></div>
+        </div>
+        <div class="card reveal">
+          <h2>Returns &amp; Bonuses</h2>
+          <div class="rule-item"><span>Return Touchdown (Player)</span><span class="val">6 pts</span></div>
+          <div class="rule-item"><span>2-Point Conversion</span><span class="val">2 pts</span></div>
+          <div class="rule-item"><span>Fumble Lost</span><span class="val neg">-2 pts</span></div>
+          <div class="rule-item"><span>Offensive Fumble Return TD</span><span class="val">6 pts</span></div>
+          <div class="rule-item"><span>Rushing 100+ Yards</span><span class="val">+1 pt</span></div>
+          <div class="rule-item"><span>Receiving 100+ Yards</span><span class="val">+1 pt</span></div>
+        </div>
+        <div class="card reveal">
+          <h2>Kicking</h2>
+          <div class="rule-item"><span>Field Goal 0-19 Yds</span><span class="val">3 pts</span></div>
+          <div class="rule-item"><span>Field Goal 20-29 Yds</span><span class="val">3 pts</span></div>
+          <div class="rule-item"><span>Field Goal 30-39 Yds</span><span class="val">3 pts</span></div>
+          <div class="rule-item"><span>Field Goal 40-49 Yds</span><span class="val">4 pts</span></div>
+          <div class="rule-item"><span>Field Goal 50+ Yds</span><span class="val">5 pts</span></div>
+          <div class="rule-item"><span>PAT Made</span><span class="val">1 pt</span></div>
+        </div>
+        <div class="card reveal">
+          <h2 style="display:flex; align-items:center; gap:8px;">Points Allowed <span class="tag-sample">DEF/ST</span></h2>
+          <div class="rule-item"><span>0 Points Allowed</span><span class="val">10 pts</span></div>
+          <div class="rule-item"><span>1-6 Points Allowed</span><span class="val">7 pts</span></div>
+          <div class="rule-item"><span>7-13 Points Allowed</span><span class="val">4 pts</span></div>
+          <div class="rule-item"><span>14-20 Points Allowed</span><span class="val">1 pt</span></div>
+          <div class="rule-item"><span>21-27 Points Allowed</span><span class="val">0 pts</span></div>
+          <div class="rule-item"><span>28-34 Points Allowed</span><span class="val neg">-1 pt</span></div>
+          <div class="rule-item"><span>35+ Points Allowed</span><span class="val neg">-4 pts</span></div>
+        </div>
+        <div class="card reveal card-span-2">
+          <h2>Defense &amp; Special Teams</h2>
+          <div class="rule-list-2col">
+            <div class="rule-item"><span>Sack</span><span class="val">1 pt</span></div>
+            <div class="rule-item"><span>Interception</span><span class="val">2 pts</span></div>
+            <div class="rule-item"><span>Fumble Recovery</span><span class="val">2 pts</span></div>
+            <div class="rule-item"><span>Touchdown</span><span class="val">6 pts</span></div>
+            <div class="rule-item"><span>Safety</span><span class="val">2 pts</span></div>
+            <div class="rule-item"><span>Blocked Kick</span><span class="val">2 pts</span></div>
+            <div class="rule-item"><span>Kickoff/Punt Return TD</span><span class="val">6 pts</span></div>
+            <div class="rule-item"><span>Extra Point Returned</span><span class="val">2 pts</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rules-grid" style="margin-top:var(--s-8);">
+        <div class="card reveal">
+          <h2>Waivers &amp; FAB</h2>
+          <div class="rule-item"><span>Format</span><span class="val">FAB · Rolling List Tiebreak</span></div>
+          <div class="rule-item"><span>Season Budget</span><span class="val">$100</span></div>
+          <div class="rule-item"><span>Claims Open</span><span class="val">Kickoff, Week's 1st Game</span></div>
+          <div class="rule-item"><span>Claim Deadline</span><span class="val">11:59 PM PT Tue</span></div>
+          <div class="rule-item"><span>Waivers Processed</span><span class="val">Wednesday morning</span></div>
+          <p class="rule-note">Every manager gets a $100 budget to bid on unrostered players. High bid wins the player; ties are broken by a continual rolling list.</p>
+        </div>
+        <div class="card reveal">
+          <h2>Trading</h2>
+          <div class="rule-item"><span>Trade Deadline</span><span class="val">Nov 28, 2026</span></div>
+          <div class="rule-item"><span>Review Window</span><span class="val">2 days</span></div>
+          <div class="rule-item"><span>Veto Threshold</span><span class="val">4 managers (1/3)</span></div>
+          <p class="rule-note">Every trade is open to league review for two days after it's made. It only gets vetoed if at least four managers vote against it.</p>
+        </div>
+      </div>
+
+      <div class="rules-grid" style="margin-top:var(--s-4);">
+        <div class="card reveal">
+          <h2>Playoffs</h2>
+          <div class="rule-item"><span>Regular Season</span><span class="val">17 weeks</span></div>
+          <div class="rule-item"><span>Week 15 — Quarterfinals</span><span class="val">8 teams</span></div>
+          <div class="rule-item"><span>Week 16 — Semifinals</span><span class="val">4 teams</span></div>
+          <div class="rule-item"><span>Week 17 — Championship</span><span class="val">2 teams</span></div>
+          <p class="rule-note">Round-two matchups reseed after any first-round upset, so the highest remaining seed always plays the lowest remaining seed.</p>
+        </div>
+        <div class="card reveal">
+          <h2>Prizes</h2>
+          <div class="rule-item"><span>Weekly High Score</span><span class="val">$15 / week</span></div>
+          <div class="rule-item"><span>Runner-Up</span><span class="val">$90</span></div>
+          <div class="prize-champion">
+            <img src="img/tcff-ring-96.png" alt="Championship ring">
+            <div>
+              <div class="prize-champion-title">League Champion — $300</div>
+              <div class="prize-champion-sub">Championship ring with display case &amp; personalized engraving</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span><strong style="color:var(--paper);">TCFF</strong> · TC Fantasy Football · Est. 2020</span>
+      <span>Commissioner: Matt</span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

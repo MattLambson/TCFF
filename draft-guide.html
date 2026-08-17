@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Guide — TCFF</title>
+<meta name="description" content="TC Fantasy Football — 2026 draft guide, full PPR top 250 board with position filters and favorites.">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a class="topbar-brand" href="index.html#home">
+      <div class="brand-mark"><img src="img/tcff-logo-128.png" alt="" width="30" height="30"></div>
+      <span class="topbar-brand-text">TCFF: Trinity Creek Fantasy Football</span>
+    </a>
+    <div class="topbar-right">
+      <span class="season-pill"><span class="dot"></span><span class="season-pill-text">2026 Season · Draft Prep</span></span>
+      <a href="draft-guide.html" class="btn btn-outline">Draft Guide</a>
+    </div>
+  </header>
+
+  <div class="sidebar-backdrop"></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="nav-list">
+      <div class="nav-section-label">League</div>
+      <a class="nav-link" href="index.html#home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>
+        Home
+      </a>
+      <a class="nav-link" href="index.html#recaps">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+        Weekly Recaps
+      </a>
+      <a class="nav-link" href="index.html#topscorer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/></svg>
+        Top Scorer
+      </a>
+      <a class="nav-link" href="index.html#matchups">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M4 7h16M4 17h16"/><circle cx="4" cy="7" r="1.5"/><circle cx="20" cy="7" r="1.5"/><circle cx="4" cy="17" r="1.5"/><circle cx="20" cy="17" r="1.5"/></svg>
+        Weekly Matchups
+      </a>
+      <a class="nav-link" href="index.html#standings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Standings
+      </a>
+
+      <div class="nav-section-label">Draft</div>
+      <a class="nav-link active" href="#draftguide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-4M9 3v6l2-2 2 2V3M13 3h6v6"/></svg>
+        Draft Guide
+      </a>
+
+      <div class="nav-section-label">Info</div>
+      <a class="nav-link" href="index.html#rules">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        Rules &amp; Scoring
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <img class="sidebar-footer-mark" src="img/tcff-logo-128.png" alt="">
+      <span><strong>TCFF</strong> · Est. 2020<br>
+      Commissioner: Matt</span>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- DRAFT GUIDE -->
+    <section id="draftguide">
+      <div class="eyebrow">Draft Guide</div>
+      <h1 style="margin-bottom:var(--s-2);">Top 250 Board</h1>
+      <p class="lede" style="margin-bottom:var(--s-4);">Full PPR rankings. Star a player to favorite them, click a name to cross them off once they're drafted.</p>
+      <div class="filter-row">
+        <button class="filter-chip active" data-pos="ALL">All</button>
+        <button class="filter-chip" data-pos="QB">QB</button>
+        <button class="filter-chip" data-pos="RB">RB</button>
+        <button class="filter-chip" data-pos="WR">WR</button>
+        <button class="filter-chip" data-pos="TE">TE</button>
+        <button class="filter-chip" data-pos="DST">DST</button>
+        <button class="filter-chip" data-pos="K">K</button>
+        <button class="filter-chip filter-chip-fav" data-pos="FAV">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>
+          Favorites
+        </button>
+        <button id="draft-clear-btn" class="btn btn-ghost btn-sm" style="margin-left:auto;" type="button">Clear favorites &amp; drafted</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th class="num">Rank</th><th>Player</th><th>Pos</th><th>NFL Team</th><th class="num">Pos Rank</th><th class="num">Bye</th></tr>
+          </thead>
+          <tbody id="draft-board-body"></tbody>
+        </table>
+      </div>
+      <p id="draft-board-empty" class="lede" style="display:none; margin-top:var(--s-4);">No favorites yet — click the star next to a player's name to add one.</p>
+    </section>
+
+    <footer class="site-footer">
+      <span><strong style="color:var(--paper);">TCFF</strong> · TC Fantasy Football · Est. 2020</span>
+      <span>Commissioner: Matt</span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/draft-board-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
