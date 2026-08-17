@@ -449,7 +449,8 @@ td .rank-ring{ margin-left:0; margin-right:8px; }
 
 /* ---------- Tables ---------- */
 .table-wrap{ background:var(--charcoal); border-radius:var(--r-md); box-shadow:var(--ring); overflow:hidden; overflow-x:auto; }
-table{ width:100%; border-collapse:collapse; min-width:520px; }
+table{ width:100%; border-collapse:collapse; }
+table.table-wide{ min-width:520px; }
 th{
   text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:0.07em;
   color:var(--fog); font-weight:600; padding:12px 16px; border-bottom:1px solid var(--iron);
