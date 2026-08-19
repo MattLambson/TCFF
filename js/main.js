@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else favorites.add(p.rank);
         saveSet(FAV_KEY, favorites);
         starBtn.classList.toggle('favorited', favorites.has(p.rank));
-        if (activeFilter === 'FAV') applyFilter();
+        applyFilter();
       });
 
       nameSpan.addEventListener('click', () => {
@@ -148,20 +148,35 @@ document.addEventListener('DOMContentLoaded', () => {
     boardBody.appendChild(frag);
 
     const chips = document.querySelectorAll('.filter-chip');
-    const draftRows = document.querySelectorAll('#draftguide tbody tr');
+    const draftRows = Array.from(document.querySelectorAll('#draftguide tbody tr'));
     const emptyMsg = document.getElementById('draft-board-empty');
     let activeFilter = 'ALL';
 
     function applyFilter() {
       let visibleCount = 0;
-      draftRows.forEach(row => {
+
+      // Outside the Favorites tab, bubble favorited players to the top of
+      // whichever filter is active while keeping everyone else in rank order.
+      const orderedRows = activeFilter === 'FAV'
+        ? draftRows
+        : draftRows.slice().sort((a, b) => {
+            const aFav = favorites.has(Number(a.dataset.rank)) ? 0 : 1;
+            const bFav = favorites.has(Number(b.dataset.rank)) ? 0 : 1;
+            return aFav - bFav;
+          });
+
+      const frag = document.createDocumentFragment();
+      orderedRows.forEach(row => {
         const rank = Number(row.dataset.rank);
         const show = activeFilter === 'ALL'
           || (activeFilter === 'FAV' && favorites.has(rank))
           || row.dataset.pos === activeFilter;
         row.style.display = show ? '' : 'none';
         if (show) visibleCount++;
+        frag.appendChild(row);
       });
+      boardBody.appendChild(frag);
+
       if (emptyMsg) emptyMsg.style.display = (activeFilter === 'FAV' && visibleCount === 0) ? '' : 'none';
     }
 
