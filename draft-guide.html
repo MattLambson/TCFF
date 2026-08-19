@@ -97,7 +97,12 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>
           Favorites
         </button>
-        <button id="draft-clear-btn" class="btn btn-ghost btn-sm" style="margin-left:auto;" type="button">Clear favorites &amp; drafted</button>
+        <label class="toggle-switch" style="margin-left:auto;">
+          <input type="checkbox" id="hide-drafted-toggle">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label">Hide drafted</span>
+        </label>
+        <button id="draft-clear-btn" class="btn btn-ghost btn-sm" type="button">Clear favorites &amp; drafted</button>
       </div>
       <div class="table-wrap">
         <table class="table-wide">
@@ -119,6 +124,6 @@
 </div>
 
 <script src="js/draft-board-data.js"></script>
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

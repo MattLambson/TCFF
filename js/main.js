@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const STAR_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>';
   const FAV_KEY = 'tcff_draftguide_favorites';
   const DRAFTED_KEY = 'tcff_draftguide_drafted';
+  const HIDE_DRAFTED_KEY = 'tcff_draftguide_hide_drafted';
 
   const boardBody = document.getElementById('draft-board-body');
 
@@ -78,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let favorites = loadSet(FAV_KEY);
     let drafted = loadSet(DRAFTED_KEY);
+    let hideDrafted = localStorage.getItem(HIDE_DRAFTED_KEY) === '1';
 
     const frag = document.createDocumentFragment();
     DRAFT_BOARD.forEach(p => {
@@ -140,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else drafted.add(p.rank);
         saveSet(DRAFTED_KEY, drafted);
         tr.classList.toggle('drafted', drafted.has(p.rank));
+        applyFilter();
       });
 
       if (favorites.has(p.rank)) starBtn.classList.add('favorited');
@@ -168,9 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const frag = document.createDocumentFragment();
       orderedRows.forEach(row => {
         const rank = Number(row.dataset.rank);
-        const show = activeFilter === 'ALL'
+        const matchesFilter = activeFilter === 'ALL'
           || (activeFilter === 'FAV' && favorites.has(rank))
           || row.dataset.pos === activeFilter;
+        const show = matchesFilter && !(hideDrafted && drafted.has(rank));
         row.style.display = show ? '' : 'none';
         if (show) visibleCount++;
         frag.appendChild(row);
@@ -189,6 +193,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    const hideDraftedToggle = document.getElementById('hide-drafted-toggle');
+    if (hideDraftedToggle) {
+      hideDraftedToggle.checked = hideDrafted;
+      hideDraftedToggle.addEventListener('change', () => {
+        hideDrafted = hideDraftedToggle.checked;
+        localStorage.setItem(HIDE_DRAFTED_KEY, hideDrafted ? '1' : '0');
+        applyFilter();
+      });
+    }
+
     const clearBtn = document.getElementById('draft-clear-btn');
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
@@ -206,6 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
         applyFilter();
       });
     }
+
+    if (hideDrafted) applyFilter();
   }
 
 });
