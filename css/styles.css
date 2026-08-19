@@ -351,6 +351,13 @@ h2{
 }
 .spotlight-score span{ font-size:13px; color:var(--fog); font-family:'Inter',sans-serif; font-weight:500; }
 
+.countdown{ display:flex; align-items:flex-start; gap:var(--s-3); position:relative; margin-bottom:var(--s-2); }
+.countdown-unit{ display:flex; flex-direction:column; align-items:center; min-width:38px; }
+.countdown-num{ font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:600; color:var(--ice); line-height:1; }
+.countdown-label{ font-size:10px; color:var(--fog); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px; }
+.countdown-sep{ font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:600; color:var(--iron); }
+.countdown-target{ font-size:11px; color:var(--fog); margin-top:var(--s-2); position:relative; }
+
 .mini-stat{
   display:flex; justify-content:space-between; align-items:center;
   padding:10px 0;

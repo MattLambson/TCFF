@@ -36,6 +36,32 @@ document.addEventListener('DOMContentLoaded', () => {
   if (backdrop) backdrop.addEventListener('click', closeSidebar);
   links.forEach(l => l.addEventListener('click', closeSidebar));
 
+  /* ---------- Draft-day countdown ---------- */
+  const cdEl = document.getElementById('draft-countdown');
+  if (cdEl) {
+    const target = new Date('2026-08-30T22:30:00Z').getTime(); // 6:30 PM ET (EDT, UTC-4)
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
+    const pad = n => String(n).padStart(2, '0');
+
+    const tick = () => {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        daysEl.textContent = hoursEl.textContent = minsEl.textContent = secsEl.textContent = '00';
+        clearInterval(timer);
+        return;
+      }
+      daysEl.textContent = pad(Math.floor(diff / 86400000));
+      hoursEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+      minsEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
+      secsEl.textContent = pad(Math.floor((diff % 60000) / 1000));
+    };
+    tick();
+    const timer = setInterval(tick, 1000);
+  }
+
   /* ---------- Draft guide board ---------- */
   const STAR_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>';
   const FAV_KEY = 'tcff_draftguide_favorites';
