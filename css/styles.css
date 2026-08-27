@@ -545,6 +545,15 @@ tbody tr.drafted::after{
   transform:translateY(-50%);
   pointer-events:none;
 }
+.tier-separator td{ padding:0; border-bottom:none; }
+.tier-separator td::after{
+  content:"";
+  display:block;
+  height:1px;
+  margin:7px 16px;
+  background:var(--iron);
+}
+.tier-separator:hover{ background:transparent; }
 
 /* ---------- Rules ---------- */
 .rules-grid{ display:grid; grid-template-columns:1fr 1fr; gap:var(--s-4); align-items:start; }

@@ -86,10 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const tr = document.createElement('tr');
       tr.dataset.pos = p.pos;
       tr.dataset.rank = p.rank;
+      tr.dataset.tier = p.tier;
 
       const rankTd = document.createElement('td');
       rankTd.className = 'num';
       rankTd.textContent = p.rank;
+
+      const tierTd = document.createElement('td');
+      tierTd.className = 'num text-fog';
+      tierTd.textContent = p.tier;
 
       const playerTd = document.createElement('td');
       const cell = document.createElement('div');
@@ -126,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
       byeTd.className = 'num text-fog';
       byeTd.textContent = p.bye ? p.bye : '—';
 
-      tr.append(rankTd, playerTd, posTd, teamTd, posRankTd, byeTd);
+      tr.append(rankTd, tierTd, playerTd, posTd, teamTd, posRankTd, byeTd);
       frag.appendChild(tr);
 
       starBtn.addEventListener('click', () => {
@@ -155,6 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const emptyMsg = document.getElementById('draft-board-empty');
     let activeFilter = 'ALL';
 
+    const TIER_COLS = 7;
+
     function applyFilter() {
       let visibleCount = 0;
 
@@ -168,7 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return aFav - bFav;
           });
 
+      boardBody.querySelectorAll('.tier-separator').forEach(el => el.remove());
+
       const frag = document.createDocumentFragment();
+      let lastVisibleTier = null;
       orderedRows.forEach(row => {
         const rank = Number(row.dataset.rank);
         const matchesFilter = activeFilter === 'ALL'
@@ -176,7 +186,18 @@ document.addEventListener('DOMContentLoaded', () => {
           || row.dataset.pos === activeFilter;
         const show = matchesFilter && !(hideDrafted && drafted.has(rank));
         row.style.display = show ? '' : 'none';
-        if (show) visibleCount++;
+        if (show) {
+          if (lastVisibleTier !== null && row.dataset.tier !== lastVisibleTier) {
+            const sepTr = document.createElement('tr');
+            sepTr.className = 'tier-separator';
+            const sepTd = document.createElement('td');
+            sepTd.colSpan = TIER_COLS;
+            sepTr.appendChild(sepTd);
+            frag.appendChild(sepTr);
+          }
+          lastVisibleTier = row.dataset.tier;
+          visibleCount++;
+        }
         frag.appendChild(row);
       });
       boardBody.appendChild(frag);
@@ -221,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    if (hideDrafted) applyFilter();
+    applyFilter();
   }
 
 });
