@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Draft Guide — TCFF</title>
-<meta name="description" content="TC Fantasy Football — 2026 draft guide, full PPR draft board with position filters and favorites.">
+<title>Top Scorers — TCFF</title>
+<meta name="description" content="TC Fantasy Football — running list of every week's high scorer for the 2026 season.">
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
         Weekly Recaps
       </a>
-      <a class="nav-link" href="index.html#topscorer">
+      <a class="nav-link active" href="top-scorers.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/></svg>
         Top Scorer
       </a>
@@ -58,7 +58,7 @@
       </a>
 
       <div class="nav-section-label">Draft</div>
-      <a class="nav-link active" href="#draftguide">
+      <a class="nav-link" href="draft-guide.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-4M9 3v6l2-2 2 2V3M13 3h6v6"/></svg>
         Draft Guide
       </a>
@@ -80,39 +80,15 @@
   <!-- ============ MAIN ============ -->
   <main>
 
-    <!-- DRAFT GUIDE -->
-    <section id="draftguide">
-      <div class="eyebrow">Draft Guide</div>
-      <h1 style="margin-bottom:var(--s-2);">Full Draft Board</h1>
-      <p class="lede" style="margin-bottom:var(--s-4);">Full PPR rankings. Star a player to favorite them, click a name to cross them off once they're drafted.</p>
-      <div class="filter-row">
-        <button class="filter-chip active" data-pos="ALL">All</button>
-        <button class="filter-chip" data-pos="QB">QB</button>
-        <button class="filter-chip" data-pos="RB">RB</button>
-        <button class="filter-chip" data-pos="WR">WR</button>
-        <button class="filter-chip" data-pos="TE">TE</button>
-        <button class="filter-chip" data-pos="DST">DST</button>
-        <button class="filter-chip" data-pos="K">K</button>
-        <button class="filter-chip filter-chip-fav" data-pos="FAV">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>
-          Favorites
-        </button>
-        <label class="toggle-switch" style="margin-left:auto;">
-          <input type="checkbox" id="hide-drafted-toggle">
-          <span class="toggle-track"><span class="toggle-thumb"></span></span>
-          <span class="toggle-label">Hide drafted</span>
-        </label>
-        <button id="draft-clear-btn" class="btn btn-ghost btn-sm" type="button">Clear favorites &amp; drafted</button>
-      </div>
-      <div class="table-wrap">
-        <table class="table-wide">
-          <thead>
-            <tr><th class="num">Rank</th><th class="num">Tier</th><th>Player</th><th>Pos</th><th>NFL Team</th><th class="num">Pos Rank</th><th class="num">Bye</th></tr>
-          </thead>
-          <tbody id="draft-board-body"></tbody>
-        </table>
-      </div>
-      <p id="draft-board-empty" class="lede" style="display:none; margin-top:var(--s-4);">No favorites yet — click the star next to a player's name to add one.</p>
+    <!-- TOP SCORERS ARCHIVE -->
+    <section id="topscorer">
+      <a class="post-back" href="index.html#topscorer">← Home</a>
+      <div class="eyebrow">Top Scorer</div>
+      <h1 style="margin-bottom:var(--s-2);">Weekly High Scores</h1>
+      <p class="lede" style="margin-bottom:var(--s-6);">Every week's top score of the 2026 season, newest first.</p>
+
+      <div id="hs-latest"></div>
+      <div id="hs-archive"></div>
     </section>
 
     <footer class="site-footer">
@@ -123,7 +99,7 @@
   </main>
 </div>
 
-<script src="js/draft-board-data.js"></script>
+<script src="js/top-scorers-data.js"></script>
 <script src="js/main.js?v=4"></script>
 </body>
 </html>

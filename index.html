@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=2">
+<link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
 
@@ -165,62 +165,50 @@
 
     <!-- TOP SCORER -->
     <section id="topscorer">
-      <div class="eyebrow">Top Scorer</div>
-      <h1 style="margin-bottom:var(--s-2);">Weekly High Scores</h1>
-      <p class="lede" style="margin-bottom:var(--s-6);">Nothing to show yet — check back after Week 1.</p>
-      <div class="card reveal empty-state">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>
-        <div class="empty-state-title">No games played yet</div>
-        <div class="empty-state-sub">Weekly high scores will show up here once Week 1 wraps.</div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Top Scorer</div>
+          <h1 style="margin:0;">High Score of the Week</h1>
+        </div>
+        <a class="see-all" href="top-scorers.html">Previous weeks' top scorers →</a>
       </div>
+      <div id="hs-home"></div>
     </section>
 
     <!-- MATCHUPS -->
     <section id="matchups">
       <div class="eyebrow">Weekly Matchups <span class="tag-sample">Not started yet</span></div>
       <h1 style="margin-bottom:var(--s-2);">Week 1 Matchups</h1>
-      <p class="lede" style="margin-bottom:var(--s-4);">Matchups populate automatically once Week 1 games kick off.</p>
+      <p class="lede" style="margin-bottom:var(--s-4);">Week 1 head-to-head pairings. Live scoring lives in the league app.</p>
       <div class="card reveal matchup-card">
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Draft Punk</span><span class="matchup-sub"><svg class="commish-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Commissioner"><path d="M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8z"/></svg>Matt · 0-0-0</span></div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-side matchup-side-right"><span class="matchup-team">.....</span><span class="matchup-sub">Corey · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">In Vrabel we trust</span><span class="matchup-sub">Adam · 0-0-0</span></div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-side matchup-side-right"><span class="matchup-team">Hold the Mayo</span><span class="matchup-sub">Alex · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Mayehem</span><span class="matchup-sub">Amy · 0-0-0</span></div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-side matchup-side-right"><span class="matchup-team">Whiskey Tango Foxtrot</span><span class="matchup-sub">Alan · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Circle The Wagons</span><span class="matchup-sub">Jayson · 0-0-0</span></div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-side matchup-side-right"><span class="matchup-team">For The Win!</span><span class="matchup-sub">Tom · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Brian's Nifty Team</span><span class="matchup-sub">Brian · 0-0-0</span></div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-side matchup-side-right"><span class="matchup-team"><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="2025 Champion"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>Yinzers</span><span class="matchup-sub">Christina · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Angry Amish</span><span class="matchup-sub">Robert · 0-0-0</span></div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-score"><span class="matchup-pts">0.00</span></div>
           <div class="matchup-side matchup-side-right"><span class="matchup-team">Bittin Kneecaps</span><span class="matchup-sub">Sean · 0-0-0</span></div>
         </div>
       </div>
@@ -412,6 +400,7 @@
   </main>
 </div>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/top-scorers-data.js"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

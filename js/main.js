@@ -62,6 +62,84 @@ document.addEventListener('DOMContentLoaded', () => {
     const timer = setInterval(tick, 1000);
   }
 
+  /* ---------- Weekly high scorers ---------- */
+  const TROPHY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>';
+
+  const hsHome = document.getElementById('hs-home');
+  const hsLatest = document.getElementById('hs-latest');
+  const hsArchive = document.getElementById('hs-archive');
+
+  if ((hsHome || hsLatest || hsArchive) && typeof TOP_SCORERS !== 'undefined') {
+    // Newest week first, whatever order the data file happens to be in.
+    const weeks = TOP_SCORERS.slice().sort((a, b) => b.week - a.week);
+    const fmtPts = n => Number(n).toFixed(2);
+
+    const featuredCard = (entry) => {
+      const note = entry.note
+        ? `<div class="hs-note">${entry.note}</div>`
+        : '';
+      return `
+        <div class="hs-card reveal">
+          <div class="hs-rays" aria-hidden="true"></div>
+          <div class="hs-confetti" aria-hidden="true">
+            ${Array.from({ length: 9 }, (_, i) => `<span class="hs-dot hs-dot-${i + 1}"></span>`).join('')}
+          </div>
+          <div class="hs-body">
+            <div class="hs-week">Week ${entry.week} · High Score</div>
+            <div class="hs-trophy">${TROPHY_ICON}</div>
+            <div class="hs-points">${fmtPts(entry.points)}</div>
+            <div class="hs-points-label">points</div>
+            <div class="hs-team">${entry.team}</div>
+            <div class="hs-manager">${entry.manager}</div>
+            ${note}
+          </div>
+        </div>`;
+    };
+
+    const emptyCard = (sub) => `
+      <div class="card reveal empty-state">
+        ${TROPHY_ICON}
+        <div class="empty-state-title">No games played yet</div>
+        <div class="empty-state-sub">${sub}</div>
+      </div>`;
+
+    if (hsHome) {
+      hsHome.innerHTML = weeks.length
+        ? featuredCard(weeks[0])
+        : emptyCard('The week\'s top score shows up here once Week 1 wraps.');
+    }
+
+    if (hsLatest) {
+      hsLatest.innerHTML = weeks.length
+        ? featuredCard(weeks[0])
+        : emptyCard('Weekly high scores will be listed here once Week 1 wraps.');
+    }
+
+    // Everything before the current week, as a running season list.
+    if (hsArchive && weeks.length > 1) {
+      const rows = weeks.slice(1).map(e => `
+        <tr>
+          <td class="num">${e.week}</td>
+          <td>${e.team}${e.note ? `<div class="hs-row-note">${e.note}</div>` : ''}</td>
+          <td class="text-fog">${e.manager}</td>
+          <td class="num hs-row-pts">${fmtPts(e.points)}</td>
+        </tr>`).join('');
+
+      hsArchive.innerHTML = `
+        <div class="section-head" style="margin-top:var(--s-8);">
+          <h2 style="margin:0;">Earlier Weeks</h2>
+        </div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr><th class="num">Week</th><th>Team</th><th>Manager</th><th class="num">Points</th></tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>`;
+    }
+  }
+
   /* ---------- Draft guide board ---------- */
   const STAR_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>';
   const FAV_KEY = 'tcff_draftguide_favorites';
