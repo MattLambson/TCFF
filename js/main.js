@@ -37,29 +37,133 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(l => l.addEventListener('click', closeSidebar));
 
   /* ---------- Draft-day countdown ---------- */
-  const cdEl = document.getElementById('draft-countdown');
-  if (cdEl) {
-    const target = new Date('2026-08-30T22:30:00Z').getTime(); // 6:30 PM ET (EDT, UTC-4)
-    const daysEl = document.getElementById('cd-days');
-    const hoursEl = document.getElementById('cd-hours');
-    const minsEl = document.getElementById('cd-mins');
-    const secsEl = document.getElementById('cd-secs');
+  // Two faces share one clock: the hero card on the home page and the pill in
+  // the top bar. The header pill fades in once the hero scrolls away, and is
+  // shown right away on pages that have no hero.
+  const faces = Array.from(document.querySelectorAll('[data-countdown]'));
+  const headerFace = document.querySelector('.topbar-countdown');
+  const heroFace = document.querySelector('[data-countdown-hero]');
+
+  if (faces.length) {
+    const DRAFT_TIME = new Date('2026-08-30T22:30:00Z').getTime(); // 6:30 PM ET (EDT, UTC-4)
+    const CONFETTI_KEY = 'tcff_draft_confetti';
+    const FINAL_MINUTE = 60000;
+
+    // ?preview=<seconds> re-points the clock so the final-minute and draft-day
+    // states can be checked without waiting for the real date.
+    const previewSecs = Number(new URLSearchParams(location.search).get('preview'));
+    const target = previewSecs > 0
+      ? Date.now() + previewSecs * 1000
+      : DRAFT_TIME;
+
     const pad = n => String(n).padStart(2, '0');
+    const cell = (face, unit) => face.querySelector(`[data-cd="${unit}"]`);
+    let live = false;
+    let timer = null;
 
     const tick = () => {
-      const diff = target - Date.now();
-      if (diff <= 0) {
-        daysEl.textContent = hoursEl.textContent = minsEl.textContent = secsEl.textContent = '00';
-        clearInterval(timer);
-        return;
+      const diff = Math.max(0, target - Date.now());
+      const days = Math.floor(diff / 86400000);
+      const isFinal = diff > 0 && diff <= FINAL_MINUTE;
+
+      faces.forEach(face => {
+        cell(face, 'days').textContent = pad(days);
+        cell(face, 'hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        cell(face, 'mins').textContent = pad(Math.floor((diff % 3600000) / 60000));
+        cell(face, 'secs').textContent = pad(Math.floor((diff % 60000) / 1000));
+        face.classList.toggle('is-final', isFinal);
+        face.classList.toggle('is-live', diff === 0);
+        // The header pill drops "00d" once we're inside the last day.
+        const dayChunk = face.querySelector('[data-cd-chunk="days"]');
+        if (dayChunk) dayChunk.hidden = days === 0;
+      });
+
+      if (diff === 0 && !live) {
+        live = true;
+        if (timer) clearInterval(timer);
+        goLive();
       }
-      daysEl.textContent = pad(Math.floor(diff / 86400000));
-      hoursEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-      minsEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
-      secsEl.textContent = pad(Math.floor((diff % 60000) / 1000));
     };
+
+    function goLive() {
+      document.body.classList.add('draft-live');
+      document.querySelectorAll('[data-cd-note]').forEach(el => {
+        el.textContent = 'The draft is live — good luck out there.';
+      });
+      // Once per browser session, so it celebrates rather than nags.
+      let alreadyPopped = false;
+      try { alreadyPopped = sessionStorage.getItem(CONFETTI_KEY) === '1'; } catch (e) {}
+      if (!alreadyPopped) {
+        try { sessionStorage.setItem(CONFETTI_KEY, '1'); } catch (e) {}
+        fireConfetti();
+      }
+    }
+
+    function fireConfetti() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const COLORS = ['#ff4fa3', '#83c3ff', '#ffc95c', '#ffffff', '#7ef2b0'];
+      const COUNT = 140;
+      const MAX_LIFE = 5400;
+
+      const layer = document.createElement('div');
+      layer.className = 'confetti-layer';
+      layer.setAttribute('aria-hidden', 'true');
+
+      for (let i = 0; i < COUNT; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti-piece';
+        if (i % 4 === 0) piece.classList.add('confetti-round');
+        piece.style.left = (Math.random() * 100) + 'vw';
+        piece.style.width = (5 + Math.random() * 5) + 'px';
+        piece.style.height = (9 + Math.random() * 8) + 'px';
+        piece.style.background = COLORS[i % COLORS.length];
+        piece.style.setProperty('--dx', (Math.random() * 30 - 15) + 'vw');
+        piece.style.setProperty('--rot', (Math.random() * 1080 - 540) + 'deg');
+        piece.style.animationDuration = (2600 + Math.random() * 1900) + 'ms';
+        piece.style.animationDelay = (Math.random() * 900) + 'ms';
+        layer.appendChild(piece);
+      }
+
+      document.body.appendChild(layer);
+      setTimeout(() => layer.remove(), MAX_LIFE);
+    }
+
     tick();
-    const timer = setInterval(tick, 1000);
+    if (!live) timer = setInterval(tick, 1000);
+
+    /* ---------- Header pill: fade in when the hero countdown leaves ---------- */
+    if (headerFace) {
+      let shown = false;
+      const setShown = (next) => {
+        if (next === shown) return;
+        shown = next;
+        if (next) {
+          headerFace.classList.add('mounted');
+          void headerFace.offsetWidth; // commit the display change so the fade runs
+          headerFace.classList.add('visible');
+        } else {
+          headerFace.classList.remove('visible');
+          setTimeout(() => {
+            if (!headerFace.classList.contains('visible')) headerFace.classList.remove('mounted');
+          }, 350);
+        }
+      };
+
+      if (heroFace) {
+        // Hand off as soon as the hero clock slides under the bar. Scroll events
+        // are already frame-aligned, so one rect read per event is enough.
+        const topbar = document.querySelector('.topbar');
+        const topbarH = topbar ? topbar.offsetHeight : 56;
+        const sync = () => setShown(heroFace.getBoundingClientRect().bottom < topbarH + 8);
+        window.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync, { passive: true });
+        sync();
+      } else {
+        // No hero on this page — the bar carries the clock from the start.
+        setShown(true);
+      }
+    }
   }
 
   /* ---------- Weekly high scorers ---------- */
