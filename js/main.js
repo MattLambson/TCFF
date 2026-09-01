@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { rootMargin: '-15% 0px -70% 0px' });
   sections.forEach(s => navObserver.observe(s));
 
-  /* ---------- Mobile sidebar toggle ---------- */
+  /* ---------- Sidebar toggle (mobile overlay + desktop collapse) ---------- */
   const menuToggle = document.querySelector('.menu-toggle');
   const sidebar = document.querySelector('.sidebar');
   const backdrop = document.querySelector('.sidebar-backdrop');
@@ -29,8 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      backdrop.classList.toggle('open');
+      if (window.innerWidth <= 760) {
+        sidebar.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      } else {
+        document.body.classList.toggle('sidebar-collapsed');
+      }
     });
   }
   if (backdrop) backdrop.addEventListener('click', closeSidebar);

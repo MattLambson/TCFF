@@ -124,7 +124,7 @@ button{ font-family:inherit; }
   opacity:0.45;
 }
 .menu-toggle{
-  display:none;
+  display:inline-flex;
   width:32px; height:32px;
   border-radius:var(--r-sm);
   background:transparent;
@@ -157,24 +157,6 @@ button{ font-family:inherit; }
 .brand-mark img{ width:100%; height:100%; object-fit:cover; }
 .topbar-brand:hover .brand-mark{ box-shadow:0 0 0 1px rgba(255,79,163,0.55), 0 0 14px rgba(255,79,163,0.35); }
 .topbar-brand-text{ font-weight:600; font-size:14px; letter-spacing:0.01em; color:var(--paper); }
-
-.topbar-right{
-  margin-left:auto;
-  display:flex;
-  align-items:center;
-  gap:var(--s-3);
-}
-.season-pill{
-  display:inline-flex; align-items:center; gap:6px;
-  background:var(--graphite); border:1px solid var(--iron);
-  border-radius:100px; padding:5px 12px 5px 10px;
-  font-size:12px; color:var(--fog); white-space:nowrap;
-}
-.season-pill .dot{
-  width:6px; height:6px; border-radius:50%;
-  background:var(--ice); box-shadow:0 0 6px var(--ice);
-  flex-shrink:0;
-}
 
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:6px;
@@ -275,6 +257,7 @@ main{
   padding:var(--s-8) var(--s-8) 100px;
   max-width:calc(var(--content-max) + var(--rail-w));
   width:100%;
+  transition:margin-left .2s ease;
 }
 section{ scroll-margin-top:calc(var(--topbar-h) + var(--s-4)); margin-bottom:var(--s-12); }
 section:last-child{ margin-bottom:0; }
@@ -695,15 +678,17 @@ tbody tr.drafted::after{
   .hero, .rules-grid{ grid-template-columns:1fr; }
 }
 
+@media (min-width: 761px){
+  body.sidebar-collapsed .sidebar{ transform:translateX(-100%); }
+  body.sidebar-collapsed main{ margin-left:0; }
+}
+
 @media (max-width: 760px){
   :root{ --rail-w:240px; }
-  .menu-toggle{ display:inline-flex; }
   .topbar{ gap:var(--s-2); padding:0 var(--s-3); }
-  .season-pill{ display:none; }
   /* Let the brand give up room so the bar never pushes the page sideways. */
   .topbar-brand{ flex-shrink:1; min-width:0; }
   .topbar-brand-text{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .topbar-right{ flex-shrink:0; }
   .sidebar{
     transform:translateX(-100%);
     box-shadow:var(--shadow-md);
