@@ -40,6 +40,39 @@ document.addEventListener('DOMContentLoaded', () => {
   if (backdrop) backdrop.addEventListener('click', closeSidebar);
   links.forEach(l => l.addEventListener('click', closeSidebar));
 
+  /* ---------- Kickoff countdown ---------- */
+  const kickoffEl = document.getElementById('kickoff-countdown');
+  if (kickoffEl) {
+    const KICKOFF_AT = new Date('2026-09-09T20:20:00-04:00').getTime();
+    const dEl = document.getElementById('kc-days');
+    const hEl = document.getElementById('kc-hours');
+    const mEl = document.getElementById('kc-mins');
+    const sEl = document.getElementById('kc-secs');
+    const pad = n => String(n).padStart(2, '0');
+
+    function tickKickoff() {
+      const diff = KICKOFF_AT - Date.now();
+      if (diff <= 0) {
+        kickoffEl.classList.add('is-live');
+        dEl.textContent = '00';
+        hEl.textContent = '00';
+        mEl.textContent = '00';
+        sEl.textContent = '00';
+        const target = document.getElementById('kickoff-target');
+        if (target) target.textContent = 'Kickoff is here — good luck out there!';
+        clearInterval(kickoffTimer);
+        return;
+      }
+      const totalSecs = Math.floor(diff / 1000);
+      dEl.textContent = pad(Math.floor(totalSecs / 86400));
+      hEl.textContent = pad(Math.floor((totalSecs % 86400) / 3600));
+      mEl.textContent = pad(Math.floor((totalSecs % 3600) / 60));
+      sEl.textContent = pad(totalSecs % 60);
+    }
+    let kickoffTimer = setInterval(tickKickoff, 1000);
+    tickKickoff();
+  }
+
   /* ---------- Weekly high scorers ---------- */
   const TROPHY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>';
 

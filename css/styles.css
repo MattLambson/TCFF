@@ -336,6 +336,26 @@ h2{
 }
 .spotlight-score span{ font-size:13px; color:var(--fog); font-family:'Inter',sans-serif; font-weight:500; }
 
+.kickoff-countdown{
+  display:flex; align-items:baseline; gap:var(--s-2);
+  position:relative;
+}
+.kickoff-unit{ display:flex; flex-direction:column; align-items:center; min-width:52px; }
+.kickoff-num{
+  font-family:'JetBrains Mono', monospace;
+  font-size:40px; font-weight:600; color:var(--ice);
+  line-height:1.1;
+  font-variant-numeric:tabular-nums;
+}
+.kickoff-unit-label{
+  font-size:11px; color:var(--fog); margin-top:2px;
+  text-transform:uppercase; letter-spacing:0.06em;
+}
+.kickoff-sep{ font-family:'JetBrains Mono', monospace; font-size:32px; font-weight:600; color:var(--iron); align-self:flex-start; }
+
+.kickoff-countdown.is-live .kickoff-num{ color:var(--signal); }
+.kickoff-countdown.is-live .kickoff-sep{ color:rgba(255,79,163,0.45); }
+
 .mini-stat{
   display:flex; justify-content:space-between; align-items:center;
   padding:10px 0;
