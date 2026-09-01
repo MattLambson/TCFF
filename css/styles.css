@@ -176,68 +176,6 @@ button{ font-family:inherit; }
   flex-shrink:0;
 }
 
-/* ---------- Persistent countdown in the top bar ---------- */
-/* Hidden until the hero countdown scrolls out of view (or immediately on
-   pages that have no hero). `mounted` puts it in the flex flow, `visible`
-   runs the fade so it never reserves width while it's invisible. */
-.topbar-countdown{
-  display:none;
-  align-items:center; gap:8px;
-  background:var(--graphite); border:1px solid var(--iron);
-  border-radius:100px; padding:5px 12px;
-  white-space:nowrap;
-  opacity:0; transform:translateY(-6px);
-  transition:opacity .35s ease, transform .35s ease, border-color .3s, box-shadow .3s;
-}
-.topbar-countdown.mounted{ display:inline-flex; }
-.topbar-countdown.visible{ opacity:1; transform:none; }
-.tbcd-label{
-  font-size:10.5px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-  color:var(--fog);
-}
-.tbcd-time{
-  font-family:'JetBrains Mono',monospace; font-size:13.5px; font-weight:600;
-  color:var(--ice); letter-spacing:0.02em;
-  transition:color .3s;
-}
-.tbcd-days[hidden]{ display:none; }
-
-/* Final minute — everything goes red. */
-.topbar-countdown.is-final{
-  border-color:rgba(255,77,77,0.55);
-  box-shadow:0 0 12px rgba(255,77,77,0.22);
-}
-.topbar-countdown.is-final .tbcd-label{ color:var(--alert); }
-.topbar-countdown.is-final .tbcd-time{ color:var(--alert); animation:cd-pulse 1s ease-in-out infinite; }
-
-/* Draft-day CTA that takes the countdown's place at 00:00:00. */
-.topbar-draft-cta{
-  display:none;
-  align-items:center; gap:7px;
-  height:34px; padding:0 var(--s-4);
-  border-radius:100px;
-  border:1px solid var(--signal);
-  background:var(--signal-dim);
-  color:var(--paper);
-  font-size:13px; font-weight:600;
-  text-decoration:none; white-space:nowrap;
-  transition:background .15s, box-shadow .2s;
-}
-.topbar-draft-cta svg{ width:15px; height:15px; flex-shrink:0; }
-.topbar-draft-cta:hover{ background:var(--signal-dim-2); box-shadow:0 0 16px rgba(255,79,163,0.35); }
-body.draft-live .topbar-countdown{ display:none; }
-body.draft-live .topbar-draft-cta{ display:inline-flex; animation:cta-pop .45s cubic-bezier(.2,1.3,.4,1) both; }
-body.draft-live .season-pill{ display:none; }
-
-@keyframes cd-pulse{
-  0%,100%{ opacity:1; }
-  50%{ opacity:0.55; }
-}
-@keyframes cta-pop{
-  from{ opacity:0; transform:scale(.85); }
-  to{ opacity:1; transform:scale(1); }
-}
-
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:6px;
   height:36px; padding:0 var(--s-4);
@@ -414,19 +352,6 @@ h2{
   position:relative;
 }
 .spotlight-score span{ font-size:13px; color:var(--fog); font-family:'Inter',sans-serif; font-weight:500; }
-
-.countdown{ display:flex; align-items:flex-start; gap:var(--s-3); position:relative; margin-bottom:var(--s-2); }
-.countdown-unit{ display:flex; flex-direction:column; align-items:center; min-width:38px; }
-.countdown-num{ font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:600; color:var(--ice); line-height:1; }
-.countdown-label{ font-size:10px; color:var(--fog); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px; }
-.countdown-sep{ font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:600; color:var(--iron); }
-.countdown-target{ font-size:11px; color:var(--fog); margin-top:var(--s-2); position:relative; }
-
-.countdown.is-final .countdown-num{ color:var(--alert); animation:cd-pulse 1s ease-in-out infinite; }
-.countdown.is-final .countdown-label{ color:rgba(255,77,77,0.7); }
-.countdown.is-final .countdown-sep{ color:rgba(255,77,77,0.45); }
-.countdown.is-live .countdown-num{ color:var(--signal); }
-.countdown.is-live .countdown-sep{ color:rgba(255,79,163,0.45); }
 
 .mini-stat{
   display:flex; justify-content:space-between; align-items:center;
@@ -619,6 +544,8 @@ td .rank-ring{ margin-left:0; margin-right:8px; }
 .post-body{ max-width:640px; }
 .post-body p{ font-size:14px; line-height:1.7; color:var(--fog); margin-bottom:var(--s-4); }
 .post-body p:last-of-type{ margin-bottom:var(--s-6); }
+.post-img{ display:block; width:100%; max-width:640px; border-radius:var(--r-md); box-shadow:var(--ring); }
+.post-img-cap{ font-size:12.5px; color:var(--fog); margin-top:var(--s-2); margin-bottom:var(--s-6); max-width:640px; }
 
 /* ---------- Tables ---------- */
 .table-wrap{ background:var(--charcoal); border-radius:var(--r-md); box-shadow:var(--ring); overflow:hidden; overflow-x:auto; }
@@ -759,61 +686,24 @@ tbody tr.drafted::after{
 }
 .reveal{ animation:fadeInUp .5s ease both; }
 
-/* ---------- Draft-day confetti ---------- */
-.confetti-layer{
-  position:fixed; inset:0;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:200;
-}
-.confetti-piece{
-  position:absolute; top:0;
-  border-radius:1px;
-  animation-name:confetti-fall;
-  animation-timing-function:cubic-bezier(.25,.6,.5,1);
-  animation-fill-mode:forwards;
-  will-change:transform, opacity;
-}
-.confetti-piece.confetti-round{ border-radius:50%; }
-@keyframes confetti-fall{
-  0%{ opacity:0; transform:translate3d(0,-8vh,0) rotate(0deg); }
-  8%{ opacity:1; }
-  85%{ opacity:1; }
-  100%{ opacity:0; transform:translate3d(var(--dx,0), 108vh, 0) rotate(var(--rot,540deg)); }
-}
-
 @media (prefers-reduced-motion: reduce){
   .reveal{ animation:none; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .countdown.is-final .countdown-num,
-  .topbar-countdown.is-final .tbcd-time,
-  body.draft-live .topbar-draft-cta{ animation:none; }
 }
 
 /* ===================== Responsive ===================== */
 @media (max-width: 980px){
   .hero, .rules-grid{ grid-template-columns:1fr; }
-  /* Once the countdown is in the bar, the season pill is the first thing to go. */
-  .topbar-countdown.mounted ~ .season-pill{ display:none; }
 }
 
 @media (max-width: 760px){
   :root{ --rail-w:240px; }
   .menu-toggle{ display:inline-flex; }
   .topbar{ gap:var(--s-2); padding:0 var(--s-3); }
-  .season-pill-text{ display:none; }
-  .season-pill{ padding:6px; }
-  .topbar-right .btn-outline{ display:none; }
+  .season-pill{ display:none; }
   /* Let the brand give up room so the bar never pushes the page sideways. */
   .topbar-brand{ flex-shrink:1; min-width:0; }
   .topbar-brand-text{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .topbar-right{ flex-shrink:0; }
-  .topbar-countdown{ padding:5px 10px; }
-  .tbcd-label{ display:none; }
-  .topbar-draft-cta{ padding:0 var(--s-3); }
-  .topbar-draft-cta .cta-full{ display:none; }
   .sidebar{
     transform:translateX(-100%);
     box-shadow:var(--shadow-md);

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=4">
+<link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body>
 
@@ -25,16 +25,7 @@
       <span class="topbar-brand-text">TCFF: Trinity Creek Fantasy Football</span>
     </a>
     <div class="topbar-right">
-      <a class="topbar-draft-cta" href="draft-guide.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>
-        <span class="cta-full">Draft is live —&nbsp;</span>Open Draft Guide →
-      </a>
-      <div class="topbar-countdown" data-countdown>
-        <span class="tbcd-label">Draft in</span>
-        <span class="tbcd-time"><span class="tbcd-days" data-cd-chunk="days"><span data-cd="days">00</span>d </span><span data-cd="hours">00</span>:<span data-cd="mins">00</span>:<span data-cd="secs">00</span></span>
-      </div>
       <span class="season-pill"><span class="dot"></span><span class="season-pill-text">2026 Season · Draft Prep</span></span>
-      <a href="draft-guide.html" class="btn btn-outline">Draft Guide</a>
     </div>
   </header>
 
@@ -116,19 +107,8 @@
             </g>
           </svg>
           <div class="spotlight-label">2026 Season</div>
-          <div class="spotlight-name">It's Draft Day!</div>
+          <div class="spotlight-name">The Draft is Complete!</div>
           <div class="spotlight-team">Trinity Creek League · 12 Teams</div>
-          <div class="countdown" id="draft-countdown" data-countdown data-countdown-hero aria-live="polite">
-            <div class="countdown-unit"><span class="countdown-num" data-cd="days">00</span><span class="countdown-label">Days</span></div>
-            <div class="countdown-sep">:</div>
-            <div class="countdown-unit"><span class="countdown-num" data-cd="hours">00</span><span class="countdown-label">Hrs</span></div>
-            <div class="countdown-sep">:</div>
-            <div class="countdown-unit"><span class="countdown-num" data-cd="mins">00</span><span class="countdown-label">Min</span></div>
-            <div class="countdown-sep">:</div>
-            <div class="countdown-unit"><span class="countdown-num" data-cd="secs">00</span><span class="countdown-label">Sec</span></div>
-          </div>
-          <div class="countdown-target" data-cd-note>Sun, Aug 30, 2026 · 6:30 PM ET</div>
-          <a href="draft-guide.html" class="btn btn-outline" style="position:relative; margin-top:var(--s-6);">Open Draft Guide →</a>
         </div>
 
         <div class="card reveal">
@@ -139,10 +119,10 @@
           <div class="mini-stat"><span class="team">Mayehem</span><span class="rec">Amy</span></div>
           <div class="mini-stat"><span class="team">Circle The Wagons</span><span class="rec">Jayson</span></div>
           <div class="mini-stat"><span class="team">Brian's Nifty Team</span><span class="rec">Brian</span></div>
-          <div class="mini-stat"><span class="team">For The Win!</span><span class="rec">Tom</span></div>
+          <div class="mini-stat"><span class="team">Like a Peacock</span><span class="rec">Tom</span></div>
           <div class="mini-stat"><span class="team">Angry Amish</span><span class="rec">Robert</span></div>
-          <div class="mini-stat"><span class="team">.....</span><span class="rec">Corey</span></div>
-          <div class="mini-stat"><span class="team">Bittin Kneecaps</span><span class="rec">Sean</span></div>
+          <div class="mini-stat"><span class="team">Mr. Jackson if you're nasty</span><span class="rec">Corey</span></div>
+          <div class="mini-stat"><span class="team">Lebowski Bowling Team</span><span class="rec">Sean</span></div>
           <div class="mini-stat"><span class="team"><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="2025 Champion"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>Yinzers</span><span class="rec">Christina</span></div>
           <div class="mini-stat"><span class="team">Whiskey Tango Foxtrot</span><span class="rec">Alan</span></div>
         </div>
@@ -150,10 +130,10 @@
 
       <div style="margin-top:var(--s-8);" class="reveal">
         <div class="section-head"><h2 style="margin:0;">Latest Recap</h2><a class="see-all" href="#recaps">All recaps →</a></div>
-        <a class="recap-card" href="recaps/recap-draft-order-set.html">
-          <div class="recap-week">Preseason</div>
-          <div class="recap-title">Draft Order is Set!</div>
-          <div class="recap-teaser">The 2026 draft order is official. See where all twelve teams landed in Round 1.</div>
+        <a class="recap-card" href="recaps/draft/recap-draft-complete.html">
+          <div class="recap-week">Draft Day</div>
+          <div class="recap-title">The Draft is Complete!</div>
+          <div class="recap-teaser">The 2026 draft is done. Thanks to everyone who came out to draft in person — here's to doing it again next year.</div>
           <span class="recap-link">Read the recap →</span>
         </a>
       </div>
@@ -163,7 +143,13 @@
     <section id="recaps">
       <div class="eyebrow">Weekly Recaps</div>
       <h1 style="margin-bottom:var(--s-6);">Recaps</h1>
-      <a class="recap-card reveal" href="recaps/recap-draft-order-set.html">
+      <a class="recap-card reveal" href="recaps/draft/recap-draft-complete.html">
+        <div class="recap-week">Draft Day</div>
+        <div class="recap-title">The Draft is Complete!</div>
+        <div class="recap-teaser">The 2026 draft is done. Thanks to everyone who came out to draft in person — here's to doing it again next year.</div>
+        <span class="recap-link">Read the recap →</span>
+      </a>
+      <a class="recap-card reveal" href="recaps/draft/recap-draft-order-set.html">
         <div class="recap-week">Preseason</div>
         <div class="recap-title">Draft Order is Set!</div>
         <div class="recap-teaser">The 2026 draft order is official. See where all twelve teams landed in Round 1. Weekly recaps will start showing up here once Week 1 wraps.</div>
@@ -192,7 +178,7 @@
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Draft Punk</span><span class="matchup-sub"><svg class="commish-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Commissioner"><path d="M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8z"/></svg>Matt · 0-0-0</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-side matchup-side-right"><span class="matchup-team">.....</span><span class="matchup-sub">Corey · 0-0-0</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">Mr. Jackson if you're nasty</span><span class="matchup-sub">Corey · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">In Vrabel we trust</span><span class="matchup-sub">Adam · 0-0-0</span></div>
@@ -207,7 +193,7 @@
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Circle The Wagons</span><span class="matchup-sub">Jayson · 0-0-0</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-side matchup-side-right"><span class="matchup-team">For The Win!</span><span class="matchup-sub">Tom · 0-0-0</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">Like a Peacock</span><span class="matchup-sub">Tom · 0-0-0</span></div>
         </div>
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Brian's Nifty Team</span><span class="matchup-sub">Brian · 0-0-0</span></div>
@@ -217,7 +203,7 @@
         <div class="matchup-row">
           <div class="matchup-side"><span class="matchup-team">Angry Amish</span><span class="matchup-sub">Robert · 0-0-0</span></div>
           <div class="matchup-vs">vs</div>
-          <div class="matchup-side matchup-side-right"><span class="matchup-team">Bittin Kneecaps</span><span class="matchup-sub">Sean · 0-0-0</span></div>
+          <div class="matchup-side matchup-side-right"><span class="matchup-team">Lebowski Bowling Team</span><span class="matchup-sub">Sean · 0-0-0</span></div>
         </div>
       </div>
     </section>
@@ -243,10 +229,10 @@
             <tr><td class="text-fog">Amy</td><td>Mayehem</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="text-fog">Jayson</td><td>Circle The Wagons</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="text-fog">Brian</td><td>Brian's Nifty Team</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="text-fog">Tom</td><td>For The Win!</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="text-fog">Tom</td><td>Like a Peacock</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="text-fog">Robert</td><td>Angry Amish</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="text-fog">Corey</td><td>.....</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="text-fog">Sean</td><td>Bittin Kneecaps</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="text-fog">Corey</td><td>Mr. Jackson if you're nasty</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="text-fog">Sean</td><td>Lebowski Bowling Team</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="text-fog">Christina</td><td><svg class="trophy-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="2025 Champion"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/><path d="M7 5H4a1 1 0 00-1 1v1a4 4 0 004 4M17 5h3a1 1 0 011 1v1a4 4 0 01-4 4"/></svg>Yinzers</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="text-fog">Alan</td><td>Whiskey Tango Foxtrot</td><td>0-0-0</td><td>-</td><td>-</td><td>-</td></tr>
           </tbody>
