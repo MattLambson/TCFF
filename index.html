@@ -78,13 +78,8 @@
 
       <div class="hero">
         <div class="reveal">
-          <div class="section-head"><h2 style="margin:0;">Latest Recap</h2><a class="see-all" href="#recaps">All recaps →</a></div>
-          <a class="recap-card" href="recaps/week-1/recap-week-1.html">
-            <div class="recap-week">Week 1</div>
-            <div class="recap-title">Week 1 Results Are In 🏆</div>
-            <div class="recap-teaser">Draft Punk opens the season with 199.90, nearly doubling up Mr. Jackson if you're nasty. Six teams sit at 1-0 heading into Week 2.</div>
-            <span class="recap-link">Read the recap →</span>
-          </a>
+          <div class="section-head"><h2 style="margin:0;">Latest Recap</h2><a class="see-all" href="recaps.html">All recaps →</a></div>
+          <div id="recap-hero"></div>
         </div>
 
         <div class="card reveal">
@@ -107,26 +102,14 @@
 
     <!-- RECAPS -->
     <section id="recaps">
-      <div class="eyebrow">Weekly Recaps</div>
-      <h1 style="margin-bottom:var(--s-6);">Recaps</h1>
-      <a class="recap-card reveal" href="recaps/week-1/recap-week-1.html">
-        <div class="recap-week">Week 1</div>
-        <div class="recap-title">Week 1 Results Are In 🏆</div>
-        <div class="recap-teaser">Draft Punk opens the season with 199.90, nearly doubling up Mr. Jackson if you're nasty. Six teams sit at 1-0 heading into Week 2.</div>
-        <span class="recap-link">Read the recap →</span>
-      </a>
-      <a class="recap-card reveal" href="recaps/draft/recap-draft-complete.html">
-        <div class="recap-week">Draft Day</div>
-        <div class="recap-title">The Draft is Complete!</div>
-        <div class="recap-teaser">The 2026 draft is done. Thanks to everyone who came out to draft in person — here's to doing it again next year. 🍻</div>
-        <span class="recap-link">Read the recap →</span>
-      </a>
-      <a class="recap-card reveal" href="recaps/draft/recap-draft-order-set.html">
-        <div class="recap-week">Preseason</div>
-        <div class="recap-title">Draft Order is Set!</div>
-        <div class="recap-teaser">The 2026 draft order is official. See where all twelve teams landed in Round 1. Weekly recaps will start showing up here once Week 1 wraps.</div>
-        <span class="recap-link">Read the recap →</span>
-      </a>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Weekly Recaps</div>
+          <h1 style="margin:0;">Recaps</h1>
+        </div>
+        <a class="see-all" href="recaps.html">Previous weeks' recaps →</a>
+      </div>
+      <div id="recap-home" class="recap-list"></div>
     </section>
 
     <!-- TOP SCORER -->
@@ -367,6 +350,7 @@
 </div>
 
 <script src="js/top-scorers-data.js"></script>
+<script src="js/recaps-data.js"></script>
 <script src="js/main.js?v=5"></script>
 </body>
 </html>

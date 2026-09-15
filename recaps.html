@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recaps — TCFF</title>
+<meta name="description" content="TC Fantasy Football — every weekly recap of the 2026 season, newest first.">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=5">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a class="topbar-brand" href="index.html#home">
+      <div class="brand-mark"><img src="img/tcff-logo-128.png" alt="" width="30" height="30"></div>
+      <span class="topbar-brand-text">TCFF: Trinity Creek Fantasy Football</span>
+    </a>
+  </header>
+
+  <div class="sidebar-backdrop"></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="nav-list">
+      <div class="nav-section-label">League</div>
+      <a class="nav-link" href="index.html#home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>
+        Home
+      </a>
+      <a class="nav-link active" href="recaps.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+        Weekly Recaps
+      </a>
+      <a class="nav-link" href="index.html#topscorer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 01-8 0L7 4z"/></svg>
+        Top Scorer
+      </a>
+      <a class="nav-link" href="index.html#matchups">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M4 7h16M4 17h16"/><circle cx="4" cy="7" r="1.5"/><circle cx="20" cy="7" r="1.5"/><circle cx="4" cy="17" r="1.5"/><circle cx="20" cy="17" r="1.5"/></svg>
+        Weekly Matchups
+      </a>
+      <a class="nav-link" href="index.html#standings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Standings
+      </a>
+
+      <div class="nav-section-label">Info</div>
+      <a class="nav-link" href="index.html#rules">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        Rules &amp; Scoring
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <img class="sidebar-footer-mark" src="img/tcff-logo-128.png" alt="">
+      <span><strong>TCFF</strong> · Est. 2020<br>
+      Commissioner: Matt</span>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- RECAPS ARCHIVE -->
+    <section id="recaps">
+      <a class="post-back" href="index.html#recaps">← Home</a>
+      <div class="eyebrow">Weekly Recaps</div>
+      <h1 style="margin-bottom:var(--s-2);">All Recaps</h1>
+      <p class="lede" style="margin-bottom:var(--s-6);">Every recap of the 2026 season, newest first.</p>
+
+      <div id="recap-archive" class="recap-list"></div>
+    </section>
+
+    <footer class="site-footer">
+      <span><strong style="color:var(--paper);">TCFF</strong> · TC Fantasy Football · Est. 2020</span>
+      <span>Commissioner: Matt</span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/recaps-data.js"></script>
+<script src="js/main.js?v=5"></script>
+</body>
+</html>

@@ -535,6 +535,7 @@ td .rank-ring{ margin-left:0; margin-right:8px; }
 .recap-teaser{ font-size:13px; color:var(--fog); line-height:1.55; margin-bottom:var(--s-4); }
 .recap-link{ font-size:12.5px; color:var(--ice); text-decoration:none; font-weight:600; }
 .recap-link:hover{ text-decoration:underline; }
+.recap-list{ display:flex; flex-direction:column; gap:var(--s-4); }
 
 /* ---------- Recap post ---------- */
 .post-back{

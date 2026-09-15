@@ -151,6 +151,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---------- Weekly recaps ---------- */
+  const recapHero = document.getElementById('recap-hero');
+  const recapHome = document.getElementById('recap-home');
+  const recapArchive = document.getElementById('recap-archive');
+
+  if ((recapHero || recapHome || recapArchive) && typeof RECAPS !== 'undefined') {
+    // Newest post first, whatever order the data file happens to be in.
+    const posts = RECAPS.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const recapCard = (entry, extraClass) => `
+      <a class="recap-card${extraClass ? ` ${extraClass}` : ''}" href="${entry.href}">
+        <div class="recap-week">${entry.label}</div>
+        <div class="recap-title">${entry.title}</div>
+        <div class="recap-teaser">${entry.teaser}</div>
+        <span class="recap-link">Read the recap →</span>
+      </a>`;
+
+    if (recapHero && posts.length) {
+      recapHero.innerHTML = recapCard(posts[0]);
+    }
+
+    if (recapHome) {
+      recapHome.innerHTML = posts.slice(0, 3).map(p => recapCard(p, 'reveal')).join('');
+    }
+
+    if (recapArchive) {
+      recapArchive.innerHTML = posts.map(p => recapCard(p, 'reveal')).join('');
+    }
+  }
+
   /* ---------- Draft guide board ---------- */
   const STAR_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7z"/></svg>';
   const FAV_KEY = 'tcff_draftguide_favorites';
