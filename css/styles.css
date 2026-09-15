@@ -302,7 +302,7 @@ h2{
 /* ---------- Hero ---------- */
 .hero{
   display:grid;
-  grid-template-columns:1.3fr 1fr;
+  grid-template-columns:1fr 1.3fr;
   gap:var(--s-4);
   margin-top:var(--s-6);
   align-items:start;
