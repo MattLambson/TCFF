@@ -11,4 +11,6 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 1, team: "Draft Punk", manager: "Matt", points: 199.90,
+    note: "Nearly doubled up Mr. Jackson if you're nasty, 199.90 to 100.26." },
 ];
