@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-09-22", label: "Week 2", title: "Week 2 Results Are In",
+    teaser: "Three teams move to 2-0, and Draft Punk holds off Yinzers for the week's high score by a single point.",
+    href: "recaps/week-2/recap-week-2.html" },
   { date: "2026-09-15", label: "Week 1", title: "Week 1 Results Are In 🏆",
     teaser: "Draft Punk opens the season with 199.90, nearly doubling up Mr. Jackson if you're nasty. Six teams sit at 1-0 heading into Week 2.",
     href: "recaps/week-1/recap-week-1.html" },

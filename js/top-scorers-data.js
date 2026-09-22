@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 2, team: "Draft Punk", manager: "Matt", points: 145.78,
+    note: "Held off Yinzers by a single point (145.78 to 144.74) to keep the title." },
   { week: 1, team: "Draft Punk", manager: "Matt", points: 199.90,
     note: "Nearly doubled up Mr. Jackson if you're nasty, 199.90 to 100.26." },
 ];
