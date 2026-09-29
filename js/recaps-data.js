@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-09-29", label: "Week 3", title: "Week 3 Results Are In",
+    teaser: "Draft Punk stays unbeaten behind a Broncos defense that sealed the win with a pick-six, while Angry Amish falls to 0-3.",
+    href: "recaps/week-3/recap-week-3.html" },
   { date: "2026-09-22", label: "Week 2", title: "Week 2 Results Are In",
     teaser: "Three teams move to 2-0, and Draft Punk holds off Yinzers for the week's high score by a single point.",
     href: "recaps/week-2/recap-week-2.html" },

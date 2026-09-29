@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 3, team: "Draft Punk", manager: "Matt", points: 159.08,
+    note: "Third straight week on top, powered by a Broncos defense that closed it out with a pick-six. Beat Angry Amish 159.08 to 72.56." },
   { week: 2, team: "Draft Punk", manager: "Matt", points: 145.78,
     note: "Held off Yinzers by a single point (145.78 to 144.74) to keep the title." },
   { week: 1, team: "Draft Punk", manager: "Matt", points: 199.90,
