@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 4, team: "Hold the Mayo", manager: "Alex", points: 180.82,
+    note: "Ended Draft Punk's three-week run on top. Edged out Lebowski Bowling Team, 180.82 to 177.58." },
   { week: 3, team: "Draft Punk", manager: "Matt", points: 159.08,
     note: "Third straight week on top, powered by a Broncos defense that closed it out with a pick-six. Edged out Whiskey Tango Foxtrot, 159.08 to 156.94." },
   { week: 2, team: "Draft Punk", manager: "Matt", points: 145.78,

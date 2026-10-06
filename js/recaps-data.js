@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-10-06", label: "Week 4", title: "Week 4 Results Are In",
+    teaser: "Hold the Mayo puts up 180.82 for the week's top score, Angry Amish gets its first win, and four teams are now tied at 3-1.",
+    href: "recaps/week-4/recap-week-4.html" },
   { date: "2026-09-29", label: "Week 3", title: "Week 3 Results Are In",
     teaser: "Draft Punk stays unbeaten behind a Broncos defense that sealed the win with a pick-six, while Angry Amish falls to 0-3.",
     href: "recaps/week-3/recap-week-3.html" },
