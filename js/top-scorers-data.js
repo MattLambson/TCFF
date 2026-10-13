@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 5, team: "Circle The Wagons", manager: "Jayson", points: 189.94,
+    note: "Second-highest score of the season so far, and enough to take over 1st place. Finished ahead of Mayehem, 189.94 to 158.06." },
   { week: 4, team: "Hold the Mayo", manager: "Alex", points: 180.82,
     note: "Ended Draft Punk's three-week run on top. Edged out Lebowski Bowling Team, 180.82 to 177.58." },
   { week: 3, team: "Draft Punk", manager: "Matt", points: 159.08,

@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-10-13", label: "Week 5", title: "Week 5 Results Are In",
+    teaser: "Circle The Wagons puts up 189.94 for the week's top score and moves into 1st, with three teams now tied at 4-1.",
+    href: "recaps/week-5/recap-week-5.html" },
   { date: "2026-10-06", label: "Week 4", title: "Week 4 Results Are In",
     teaser: "Hold the Mayo puts up 180.82 for the week's top score, Angry Amish gets its first win, and four teams are now tied at 3-1.",
     href: "recaps/week-4/recap-week-4.html" },
