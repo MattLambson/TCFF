@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 6, team: "Yinzers", manager: "Christina", points: 146.26,
+    note: "The defending champ's first week on top this season. Edged out Draft Punk, 146.26 to 142.86." },
   { week: 5, team: "Circle The Wagons", manager: "Jayson", points: 189.94,
     note: "Second-highest score of the season so far, and enough to take over 1st place. Finished ahead of Mayehem, 189.94 to 158.06." },
   { week: 4, team: "Hold the Mayo", manager: "Alex", points: 180.82,
