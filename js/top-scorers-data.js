@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 7, team: "Whiskey Tango Foxtrot", manager: "Alan", points: 147.22,
+    note: "Alan's first week on top this season. Edged out In Vrabel we trust, 147.22 to 144.92." },
   { week: 6, team: "Yinzers", manager: "Christina", points: 146.26,
     note: "The defending champ's first week on top this season. Edged out Draft Punk, 146.26 to 142.86." },
   { week: 5, team: "Circle The Wagons", manager: "Jayson", points: 189.94,
