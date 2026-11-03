@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 8, team: "Angry Amish", manager: "Robert", points: 156.96,
+    note: "Robert's first week on top this season. Edged out Brian's Nifty Team by 0.16, 156.96 to 156.80." },
   { week: 7, team: "Whiskey Tango Foxtrot", manager: "Alan", points: 147.22,
     note: "Alan's first week on top this season. Edged out In Vrabel we trust, 147.22 to 144.92." },
   { week: 6, team: "Yinzers", manager: "Christina", points: 146.26,

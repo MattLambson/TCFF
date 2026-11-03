@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-11-03", label: "Week 8", title: "Week 8 Results Are In",
+    teaser: "Angry Amish edges Brian's Nifty Team by 0.16 for the week's top score, and Circle The Wagons wins a fifth straight to move two games clear in 1st at 7-1.",
+    href: "recaps/week-8/recap-week-8.html" },
   { date: "2026-10-29", label: "Week 7", title: "Week 7 Results Are In",
     teaser: "Whiskey Tango Foxtrot puts up 147.22 for the week's top score, and Circle The Wagons beats Lebowski Bowling Team to take sole possession of 1st at 6-1.",
     href: "recaps/week-7/recap-week-7.html" },
