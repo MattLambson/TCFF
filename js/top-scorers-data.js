@@ -11,6 +11,8 @@
 //     note: "Rode a 40-point day from the RB2 slot." },
 
 const TOP_SCORERS = [
+  { week: 10, team: "Draft Punk", manager: "Matt", points: 215.06,
+    note: "Highest score of the season and the first over 200. Finished ahead of Whiskey Tango Foxtrot, 215.06 to 186.34." },
   { week: 9, team: "Circle The Wagons", manager: "Jayson", points: 164.08,
     note: "Jayson's second week on top this season, in a 1st-vs-2nd win. Edged out Draft Punk, 164.08 to 156.46." },
   { week: 8, team: "Angry Amish", manager: "Robert", points: 156.96,

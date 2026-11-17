@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-11-17", label: "Week 10", title: "Week 10 Results Are In",
+    teaser: "Draft Punk sets the season high with 215.06, and Circle The Wagons wins a seventh straight to clinch the first playoff spot at 9-1.",
+    href: "recaps/week-10/recap-week-10.html" },
   { date: "2026-11-17", label: "Week 9", title: "Week 9 Results Are In",
     teaser: "A late one, back from a cruise: Circle The Wagons tops Draft Punk 164.08-156.46 in the 1st-vs-2nd matchup for the week's top score and a sixth straight win.",
     href: "recaps/week-9/recap-week-9.html" },
