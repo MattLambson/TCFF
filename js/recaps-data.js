@@ -9,6 +9,9 @@
 // page, relative to the site root).
 
 const RECAPS = [
+  { date: "2026-11-24", label: "Week 11", title: "Week 11 Results Are In",
+    teaser: "Yinzers post the week's top score with 134.38, Circle The Wagons wins an eighth straight, and Lebowski Bowling Team clinches a playoff spot at 8-3.",
+    href: "recaps/week-11/recap-week-11.html" },
   { date: "2026-11-17", label: "Week 10", title: "Week 10 Results Are In",
     teaser: "Draft Punk sets the season high with 215.06, and Circle The Wagons wins a seventh straight to clinch the first playoff spot at 9-1.",
     href: "recaps/week-10/recap-week-10.html" },
